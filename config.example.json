@@ -1,0 +1,11 @@
+{
+  "bot_token": "xxx",
+  "prefix": "!",
+  "prefixSeperated": false,
+  "channels": {
+    "general": "1234"
+  },
+  "roles": {
+    "admin": "1234"
+  }
+}
