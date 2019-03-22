@@ -10,7 +10,7 @@ log(chalk.bgGreen.whiteBright.bold(
 ));
 
 if (!config.channels)
-  client.logWarning('"config.channels" is not defined. Channel.is won\'t work.');
+  client.logWarning('"config.channels" is not defined. TextChannel.is won\'t work.');
 
 if (!config.roles)
   client.logWarning('"config.roles" is not defined. GuildMember.is won\'t work.');
