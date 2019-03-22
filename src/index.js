@@ -14,7 +14,7 @@ async function start() {
       this.loadEvents();
       this.loadCommands();
       this.loadModels();
-      this.login(this.config.bot_token)
+      this.login(this.config.botToken)
     }
 
     async loadEvents() {

@@ -1,6 +1,6 @@
 {
   "name": "Discord.JS Boilerplate",
-  "bot_token": "xxx",
+  "botToken": "xxx",
   "prefix": "!",
   "prefixSeperated": false,
   "channels": {
