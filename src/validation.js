@@ -14,3 +14,6 @@ if (!config.channels)
 
 if (!config.roles)
   client.logWarning('"config.roles" is not defined. GuildMember.is won\'t work.');
+
+if (!config.database)
+  client.logWarning('"config.database" is not defined. Database calls & Models won\'t work.');

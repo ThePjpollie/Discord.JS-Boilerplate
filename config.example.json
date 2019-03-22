@@ -7,5 +7,11 @@
   },
   "roles": {
     "admin": "1234"
+  },
+  "database": {
+    "host": "",
+    "user": "",
+    "pass": "",
+    "database": ""
   }
 }
