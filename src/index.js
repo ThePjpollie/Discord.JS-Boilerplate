@@ -40,7 +40,7 @@ class DiscordBot extends Discord.Client {
         return;
 
       try {
-        const file = require(`./commands/${f}`);
+        const file = require(`./Commands/${f}`);
         file.commands.forEach(cmd =>
           this.commands[cmd.command] = file
         )
