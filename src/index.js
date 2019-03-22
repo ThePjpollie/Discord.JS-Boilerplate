@@ -57,23 +57,77 @@ async function start() {
     }
 
     loadLogs() {
-      this.log = (msg) =>
+      this.log = (msg, ignoreLogChannel = false) => {
         log(chalk.bgBlue.whiteBright(`ℹ ${msg}`));
 
-      this.logSuccess = (msg) =>
+        if (client.logChannel && !ignoreLogChannel)
+          client.logChannel.send(
+            "Log from " + client.config.name +
+            "```" +
+            msg.substring(0, 1950) +
+            "```"
+          )
+      };
+
+      this.logSuccess = (msg, ignoreLogChannel = false) => {
         log(chalk.bgGreen.whiteBright(`✅ ${msg}`));
 
-      this.logWarning = (msg) =>
+        if (client.logChannel && !ignoreLogChannel)
+          client.logChannel.send(
+            "Success log from " + client.config.name +
+            "```css\n" +
+            msg.substring(0, 1950) +
+            "```"
+          )
+      };
+
+      this.logWarning = (msg, ignoreLogChannel = false) => {
         log(chalk.bgYellow.whiteBright(`⚠ ${msg}`));
 
-      this.logError = (msg) =>
+        if (client.logChannel && !ignoreLogChannel)
+          client.logChannel.send(
+            "Warning log from " + client.config.name +
+            "```fix\n" +
+            msg.substring(0, 1950) +
+            "```"
+          )
+      };
+
+      this.logError = (msg, ignoreLogChannel = false) => {
         log(chalk.bgRed.whiteBright(`❌ ${msg}`));
+
+        if (client.logChannel && !ignoreLogChannel && !msg.stack)
+          client.logChannel.send(
+            "Error log from " + client.config.name +
+            "```cs\n" +
+            "# " + msg.substring(0, 1950) +
+            "```"
+          )
+      };
     }
   }
 
-  module.exports = new DiscordBot();
+  const client = new DiscordBot();
+  module.exports = client;
   require('./validation');
 
+
+  // Error catching
+  process.on('uncaughtException', errorHandling);
+  process.on('unhandledRejection', errorHandling);
+
+  function errorHandling(err) {
+    client.logError(err);
+    console.log(err);
+
+    if (client.logChannel)
+      client.logChannel.send(
+        "Error occurred on " + client.config.name +
+        "```" +
+        err.stack.substring(0, 1950) +
+        "```"
+      )
+  }
 }
 
 start();

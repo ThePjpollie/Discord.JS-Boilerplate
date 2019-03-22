@@ -1,4 +1,5 @@
 {
+  "name": "Discord.JS Boilerplate",
   "bot_token": "xxx",
   "prefix": "!",
   "prefixSeperated": false,
@@ -8,6 +9,7 @@
   "roles": {
     "admin": "1234"
   },
+  "logChannel": null,
   "database": {
     "host": "",
     "user": "",
