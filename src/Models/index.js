@@ -4,6 +4,9 @@ const {promisify} = require("util");
 const readdir = promisify(require("fs").readdir);
 const client = require('../index');
 
+if (!config.database)
+  return module.exports = null;
+
 const sequelize = new Sequelize(config.database.database, config.database.user, config.database.pass, {
   host: config.database.host,
   dialect: 'mysql',
