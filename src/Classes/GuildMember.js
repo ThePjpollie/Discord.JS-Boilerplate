@@ -1,16 +1,14 @@
-const config = require('../../config');
+const config = require("../../config");
 
 module.exports = GuildMember => {
   return class Member extends GuildMember {
-
     constructor(client, data, guild) {
       super(client, data, guild);
       this.checkRoles();
     }
 
     checkRoles() {
-      if (!config.roles)
-        return;
+      if (!config.roles) return;
 
       this.is = {};
 
@@ -19,5 +17,5 @@ module.exports = GuildMember => {
           this.is[role] = this.roles.has(config.roles[role]);
       }
     }
-  }
+  };
 };

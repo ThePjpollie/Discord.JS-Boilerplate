@@ -1,16 +1,14 @@
-const config = require('../../config');
+const config = require("../../config");
 
 module.exports = TextChannel => {
   return class Channel extends TextChannel {
-
     constructor(guild, data) {
       super(guild, data);
       this.checkChannel();
     }
 
     checkChannel() {
-      if (!config.channels)
-        return;
+      if (!config.channels) return;
 
       this.is = {};
 
@@ -19,5 +17,5 @@ module.exports = TextChannel => {
           this.is[channel] = config.channels[channel] === this.id;
       }
     }
-  }
+  };
 };
