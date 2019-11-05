@@ -16,7 +16,7 @@
     "discord.js": "github:discordjs/discord.js",
     "fs": "0.0.1-security",
     "mysql2": "^1.6.5",
-    "sequelize": "^5.10.1",
+    "sequelize": "^5.15.1",
     "util": "^0.11.1"
   },
   "devDependencies": {
